@@ -9,34 +9,27 @@ if ( $uri === "/")
 echo 'Home';}
 else if ( $uri === "/register")
 {
-echo 'Ici on atteri sur la page d\'inscription';}
+header('Location: register2.php');
+  }
 else if ( $uri === "/connexion")
 {
-echo 'Ici on atteri sur la page de connexion';
+include('connexion.php');
 }
 else if ( $uri === "/disconnect")
 {
-echo 'Ici on atteri sur la page de déconnexion';
+include('disconnect.php');
 }
 else if ( $uri === "/timeline")
 {
-echo 'Ici on atteri sur la page de tweet';
+include('timeline.php');
 }
-else if ( $uri === "/post")
+else if ( $uri === "/tweet")
 {
-echo 'Ici on atteri sur la page pour tweetter';
-}
-else if ( $uri === "/delete")
-{
-echo 'Ici on atteri sur la page pour supprimer un tweet';
+include('tweet.php');
 }
 else if ( $uri === "/retweet")
 {
-echo 'Ici on atteri sur la page pour retweeter';
-}
-else if ( $uri === "/disconnect")
-{
-echo 'Ici on atteri sur la page pour liker un tweet';
+include('retweet.php');
 }
 else
 {

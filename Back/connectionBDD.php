@@ -1,17 +1,10 @@
 <?php
-include("connexionBDD.php");
-​
-try
-{
-    $tweets = $bdd->query('SELECT * FROM tweets');
+try{
+  $bdd = new PDO('mysql:host=localhost;dbname=paonBDD;charset=utf8', 'root', 'Hiboux.');
 }
 catch(Exception $e)
 {
-    die('Erreur : '.$e->getMessage());
+        die('Erreur : '.$e->getMessage());
 }
-​
-$resultat = $tweets->fetchAll();
-​
-echo json_encode($resultat); // Remplacer echo par la reponse
-​
+
 ?>

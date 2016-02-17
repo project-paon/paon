@@ -15,8 +15,8 @@
    $email = 'truc';
    $password = 'boudin';
    $img = 'pouet';
-​
-​    try{
+
+   ​    try{
         $testPseudo = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
     }catch(Exception $e)
     {
