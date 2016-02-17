@@ -1,8 +1,6 @@
-//Css Commun//
-html, body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
-//Css Florent//
-//Css Anthony//
+$(document).ready(function(){
+  // Action on submitting the inscription form
+  $(document).on("submit", "form.insform", function(event){
+    event.preventDefault();
+  });
+});
