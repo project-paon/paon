@@ -1,14 +1,30 @@
+html body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
 
-
-nav {
-
+body{
+  background-color: black;
+  background-image: url("../Front/img/Paon-5.jpg")
+}
+header {
+  position: fixed;
   padding-bottom: 5px;
   top: 0;
-  background-color: white;
+  background: linear-gradient(to right, #011D65, #0FABF8);
   color: black;
   list-style-type: none;
-
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+  color: black;
+  list-style-type: none;
+  padding-bottom: 5px;
+  top: 0;
 }
+
 
 .menu img {
   width: 24px;
@@ -30,11 +46,13 @@ li a {
 }
 
 .container {
-  
+  width: 1000px;
+  height: 100%;
+
 }
 
 
-.membre, .paonPost, .textArea {
+.membre, .paonPost, .textArea, .username {
   background-color: white;
   border: 1px black solid;
   border-radius: 5%;

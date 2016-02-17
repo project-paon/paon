@@ -16,7 +16,7 @@
 
 <?php
 include('connectionBDD.php');
-   if (isset($_POST['submit'])) {
+   if (isset($_POST['pseudo'])) {
      // Création des variables
      $pseudo=$_POST['pseudo'];
      $name=$_POST['name'];
@@ -26,12 +26,29 @@ include('connectionBDD.php');
      $img=$_POST['img'] ;
 
      // Insertion des informations du formulaire dans la BDD
+     try {
+        $testPseudo = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
+    }
+    catch(Exception $e)
+    {
+        header('HTTP/1.1 400 crash BDD');
+        die('Erreur : '.$e->getMessage());
+    }
 
-     $send = $bdd->prepare("INSERT INTO users(pseudo,name,firstname,email,password,image) VALUES (?,?,?,?,?,?)");
-     $send->execute(array($pseudo, $name, $firstname, $email, $password, $img));
-     echo $pseudo ;
-     echo 'Votre inscription est bien enregistrée';
-     echo json_encode(array("blablabla"=>$variable));
-
-   }
+  if ($testPseudo->rowCount() > 0){
+        header('HTTP/1.1 422 pseudo already taken');
+        echo ('{"statut":"false","erreur" : "'.$pseudo.' déjà utilisé"}');
+  }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    header('HTTP/1.1 422 invalid email');
+  }elseif(strlen($password) < 8){
+      header('HTTP/1.1 422 to short password');
+  }else {
+    $bdd->query("INSERT INTO users VALUES($pseudo, $name,$firstname,$email,$password,$image)");
+    header('HTTP/1.1 201 OK');
+    echo ('{"statut":"true"}');
+  }
+}
+else {
+  header('HTTP/1.1 400 no method');
+}
 ?>

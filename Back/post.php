@@ -21,4 +21,5 @@ if(strlen ($message) > 140 ){
     echo ('{"statut":"false","erreur" : "message trop long"}');
 
 }
+
 ?>
