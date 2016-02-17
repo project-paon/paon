@@ -1,16 +1,13 @@
-<head>
-<meta charset="UTF-8">
-</head>
 <?php
 $uri = $_SERVER['REQUEST_URI'];
 
 if ( $uri === "/")
 {
-echo 'Home';}
+echo 'Home';
+}
 else if ( $uri === "/register")
 {
-header('Location: register2.php');
-  }
+include('register.php');  }
 else if ( $uri === "/connexion")
 {
 include('connexion.php');
@@ -33,6 +30,6 @@ include('retweet.php');
 }
 else
 {
-echo 'Ici rien à afficher, on atterira nullepart';
+header('HTTP/1.1 400 Bad Request');
 }
 ?>
