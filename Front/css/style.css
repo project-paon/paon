@@ -1,0 +1,202 @@
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  16% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+/*Css Commun*/
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+nav {
+  position: fixed;
+  padding-bottom: 5px;
+  top: 0;
+  background: linear-gradient(to right, #011D65, #0FABF8);
+  color: black;
+  list-style-type: none;
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+}
+
+/*Css Florent*/
+
+.acceuil {
+  width: 60px;
+  height: auto;
+  background: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.menu {
+  position: absolute;
+  left: 2%;
+  top: 22%;
+}
+.menu img {
+  width: 24px;
+  height: 24px;
+}
+.menu li {
+  display: inline;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.menu li a {
+  color: black;
+}
+li a {
+  text-decoration: none;
+}
+.menu li:hover {
+  border-bottom: 2px blue solid;
+}
+.lang {
+  position: absolute;
+  right: 2%;
+  top: 8%;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+.slideshow li span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: imageAnimation 18s linear infinite 0s;
+}
+.slideshow li:nth-child(1) span {
+  background-image: url("../img/Paon-5.jpg");
+}
+.slideshow li:nth-child(2) span {
+  background-image: url("../img/people.jpg");
+  animation-delay: 6s;
+}
+.slideshow li:nth-child(3) span {
+  background-image: url("../img/city.jpg");
+  animation-delay: 12s;
+}
+.description {
+  height: 60%;
+  position: absolute;
+  width: 45%;
+  left: 5%;
+  top: 30%;
+  color: white;
+  font-size: 20px;
+}
+#swag {
+  font-size: 14px;
+}
+h1 {
+  font-size: 40px;
+}
+.form2 {
+  margin-top: 80px;
+  padding: 10px;
+  position: absolute;
+  background: linear-gradient(to bottom right, #011D65, #0FABF8);
+  border: 1px black solid;
+  width: 30%;
+  right: 10%;
+  border-radius: 5%;
+}
+#rekt {
+  width: 55%;
+}
+.form2 {
+  top: 32%;
+  padding-right: 18px;
+  height: 30%;
+}
+.form2 p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#inscription {
+  margin-left: 52%;
+  color: #292f33;
+  background-color: #e99110;
+  border-radius: 10%;
+  box-sizing: border-box;
+  border: 1px #ec8b11 solid;
+  height: 30px;
+  width: 50%;
+  font-weight: bold;
+  background-image: linear-gradient(#ffcc4d, #e99110);
+}
+#connexion{
+  color: #292f33;
+  background-color: #e99110;
+  border-radius: 10%;
+  box-sizing: border-box;
+  border: 1px #ec8b11 solid;
+  font-weight: bold;
+  background-image: linear-gradient(#ffcc4d, #e99110);
+}
+.inputext {
+  width: 100%;
+}
+input {
+  margin: 3px;
+}
+input[type=text], input[type=password] {
+  border-radius: 5%;
+  height: 25px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  text-align: center;
+  width: 100%;
+}
+ul {
+  padding: 0;
+}
+ul li {
+  list-style-type: none;
+  display: inline;
+  padding-right: 5px;
+  font-size: 14px;
+  color: white;
+}
+ul li a {
+  color: white;
+}
+header{
+  position:
+}
+
+/*Css Anthony*/

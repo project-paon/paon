@@ -1,5 +1,9 @@
 CREATE TABLE users (
+<<<<<<< HEAD
   pseudo  VARCHAR(255) PRIMARY KEY NOT NULL,
+=======
+  pseudo VARCHAR(255) NOT NULL PRIMARY KEY,
+>>>>>>> 25e32d70e9c1b7257915b6340612d90ba3b04e8d
   name VARCHAR(255),
   firstname VARCHAR(255),
   email VARCHAR(255),
@@ -9,7 +13,7 @@ CREATE TABLE users (
 
 CREATE TABLE tweets (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  user_id INT NOT NULL,
+  user_pseudo VARCHAR(255) NOT NULL,
   message VARCHAR(140),
   like_nb INT,
   rt_nb INT
@@ -18,7 +22,7 @@ CREATE TABLE tweets (
 CREATE TABLE rt (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   tweet_id INT NOT NULL,
-  user_id INT NOT NULL
+  user_pseudo VARCHAR(255) NOT NULL
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 CREATE TABLE session (
