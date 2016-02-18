@@ -12,6 +12,6 @@ catch(Exception $e)
 ​
 $resultat = $tweets->fetchAll();
 ​
-echo json_encode($resultat); // Remplacer echo par la reponse
+echo json_encode($resultat); // Remplacer echo par la réponse
 ​
 ?>

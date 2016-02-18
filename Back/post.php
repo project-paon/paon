@@ -10,7 +10,7 @@ if(strlen ($message) > 140 ){
   try{
       $bdd->query("INSERT INTO tweets VALUES('',$pseudo, $message,'','')");
       header('HTTP/1.1 201 OK');
-      echo json_encode('{"statut":"true"}');
+      echo ('{"statut":"true"}');
   }catch(Exception $e)
   {
       die('Erreur : '.$e->getMessage());
@@ -18,7 +18,7 @@ if(strlen ($message) > 140 ){
 
 }else {
     header('HTTP/1.1 412 too long');
-    echo json_encode('{"statut":"false","erreur" : "message trop long"}');
+    echo ('{"statut":"false","erreur" : "message trop long"}');
 
 }
 
