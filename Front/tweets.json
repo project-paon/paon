@@ -1,0 +1,6 @@
+"tweets":[
+  {"id":"1", "user_id":"1", "message":"Dans nos bouches le mot liberté devient insultant, car c'est les soldats qui le portent et non plus le vent...", "like_nb":"2", "rt_nb":"0"}
+  {"id":"2", "user_id":"1", "message":"Dans nos bouches le mot liberté devient insultant, car c'est les soldats qui le portent et non plus le vent...", "like_nb":"0", "rt_nb":"2"}
+  {"id":"3", "user_id":"2", "message":"Dans nos bouches le mot liberté devient insultant, car c'est les soldats qui le portent et non plus le vent...", "like_nb":"4", "rt_nb":"1"}
+  {"id":"4", "user_id":"3", "message":"Dans nos bouches le mot liberté devient insultant, car c'est les soldats qui le portent et non plus le vent...", "like_nb":"5", "rt_nb":"3"}
+]
