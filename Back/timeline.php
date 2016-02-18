@@ -6,11 +6,12 @@ try{
 }
 catch(Exception $e)
 {
+    header('HTTP/1.1 400 crash BDD');
     die('Erreur : '.$e->getMessage());
 }
 ​
 $resultat = $tweets->fetchAll();
 ​
-echo json_encode($resultat); // Remplacer echo par la reponse
+echo json_encode($resultat); // Remplacer echo par la réponse
 ​
 ?>

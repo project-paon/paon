@@ -1,12 +1,11 @@
-<head>
-<meta charset="UTF-8">
-</head>
 <?php
+
 $uri = $_SERVER['REQUEST_URI'];
 
 if ( $uri === "/")
 {
-echo 'Home';}
+echo 'Home';
+}
 else if ( $uri === "/register")
 {
   include('register.php');
