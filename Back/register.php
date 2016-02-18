@@ -6,7 +6,7 @@
   $name = $_POST['name'];
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $img = $_POST['img'];
+  $image = $_POST['img'];
 
 
     try{
@@ -15,8 +15,6 @@
     {
         die('Erreur : '.$e->getMessage());
     }
-
-  $test = $testPseudo->fetchAll();
 
   if ($testPseudo->rowCount() > 0){
         header('HTTP/1.1 422 pseudo already taken');

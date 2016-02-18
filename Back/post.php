@@ -2,6 +2,7 @@
 include("connectionBDD.php");
 
 $pseudo = $_POST['pseudo'];
+//$session
 $message = $_POST['message'];
 
 if(strlen ($message) > 140 ){

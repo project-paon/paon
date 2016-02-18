@@ -12,6 +12,6 @@ catch(Exception $e)
 
 $resultat = $tweets->fetchAll();
 
-echo json_encode($resultat); 
+echo json_encode($resultat);
 
 ?>

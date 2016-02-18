@@ -3,11 +3,8 @@
 
 
   $pseudo = 'atomicfrog';
-  $firstname = 'karine';
-  $name = 'jamet';
-  $email = 'truc';
   $password = 'boudin';
-  $img = 'pouet';
+
 
 
 
@@ -17,3 +14,8 @@
    {
        die('Erreur : '.$e->getMessage());
    }
+
+
+  $test = $testPseudo->fetchAll();
+
+  echo $test;
