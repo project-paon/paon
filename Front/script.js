@@ -1,9 +1,19 @@
-<<<<<<< HEAD
-=======
 $(document).ready(function(){
+
   // Action on submitting the inscription form
-  $(document).on("submit", "form.insform", function(event){
+  $(".insform").on("submit", function(event){
     event.preventDefault();
   });
+
+  // Action on submittion the connexion form
+  $(".conform").on("submit", function(event){
+    event.preventDefault();
+    var user = new Object();
+    user.pseudo = $("#accConnect").val();
+    user.password = $("#rekt").val();
+    var userJson = JSON.stringify(user);
+    console.log(userJson);
+    $("#accConnect").val('');
+    $("#rekt").val('');
+  });
 });
->>>>>>> 6af62ec0965a018996242682059188b08ce3ff71
