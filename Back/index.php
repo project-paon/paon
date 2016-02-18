@@ -1,7 +1,5 @@
-<head>
-<meta charset="UTF-8">
-</head>
 <?php
+
 $uri = $_SERVER['REQUEST_URI'];
 
 if ( $uri === "/")

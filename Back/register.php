@@ -14,6 +14,7 @@
         $testPseudo = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
     }catch(Exception $e)
     {
+        header('HTTP/1.1 400 crash BDD');
         die('Erreur : '.$e->getMessage());
     }
 
