@@ -9,37 +9,31 @@ if ( $uri === "/")
 echo 'Home';}
 else if ( $uri === "/register")
 {
-echo 'Ici on atteri sur la page d\'inscription';}
+  include('register.php');
+}
 else if ( $uri === "/connexion")
 {
-echo 'Ici on atteri sur la page de connexion';
+include('connection.php');
 }
 else if ( $uri === "/disconnect")
 {
-echo 'Ici on atteri sur la page de déconnexion';
+include('disconnect.php');
 }
 else if ( $uri === "/timeline")
 {
-echo 'Ici on atteri sur la page de tweet';
+include('timeline.php');
 }
-else if ( $uri === "/post")
+else if ( $uri === "/tweet")
 {
-echo 'Ici on atteri sur la page pour tweetter';
-}
-else if ( $uri === "/delete")
-{
-echo 'Ici on atteri sur la page pour supprimer un tweet';
+include('tweet.php');
 }
 else if ( $uri === "/retweet")
 {
-echo 'Ici on atteri sur la page pour retweeter';
-}
-else if ( $uri === "/disconnect")
-{
-echo 'Ici on atteri sur la page pour liker un tweet';
+include('retweet.php');
 }
 else
 {
-echo 'Ici rien à afficher, on atterira nullepart';
+ header('HTTP/1.1 404 not found');
+
 }
 ?>

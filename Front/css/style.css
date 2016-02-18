@@ -25,7 +25,7 @@ html, body {
   margin: 0;
   height: 100%;
 }
-nav {
+header {
   position: fixed;
   padding-bottom: 5px;
   top: 0;

@@ -21,5 +21,4 @@ if(strlen ($message) > 140 ){
     echo json_encode('{"statut":"false","erreur" : "message trop long"}');
 
 }
-
 ?>
