@@ -35,7 +35,6 @@ include('connectionBDD.php');
     echo ('{"statut":"true"}');
   }
 }
-
 else {
   header('HTTP/1.1 400 no method');
 }

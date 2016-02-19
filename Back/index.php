@@ -12,7 +12,6 @@ echo 'Home';
 else if ( $uri === "/register")
 {
 include('register.php');
-
 }
 else if ( $uri === "/connexion")
 {
