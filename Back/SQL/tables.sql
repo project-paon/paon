@@ -1,9 +1,5 @@
 CREATE TABLE users (
-<<<<<<< HEAD
-  pseudo  VARCHAR(255) PRIMARY KEY NOT NULL,
-=======
   pseudo VARCHAR(255) NOT NULL PRIMARY KEY,
->>>>>>> 25e32d70e9c1b7257915b6340612d90ba3b04e8d
   name VARCHAR(255),
   firstname VARCHAR(255),
   email VARCHAR(255),

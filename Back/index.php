@@ -32,7 +32,9 @@ include('retweet.php');
 }
 else
 {
+
  header('HTTP/1.1 404 not found');
+
 
 }
 ?>

@@ -1,18 +1,35 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+  <form action="" method="post">
+    <input type="text" name="pseudo" value="">
+    <input type="text" name="name" value="">
+    <input type="text" name="firstname" value="">
+    <input type="email" name="email" value="">
+    <input type="password" name="password" value="">
+    <input type="text" name="img" value="">
+    <input type="submit" name="submit" value="">
+  </form>
+</body>
+
 <?php
-  include("connectionBDD.php");
+include('connectionBDD.php');
+   if (isset($_POST['pseudo'])) {
+     // Création des variables
+     $pseudo=$_POST['pseudo'];
+     $name=$_POST['name'];
+     $firstname=$_POST['firstname'];
+     $email=$_POST['email'];
+     $password=$_POST['password'];
+     $img=$_POST['img'] ;
 
-  $pseudo = $_POST['pseudo'];
-  $firstname = $_POST['firstname'];
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $image = $_POST['img'];
-
-
-    try{
-
+     // Insertion des informations du formulaire dans la BDD
+     try {
         $testPseudo = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
-    }catch(Exception $e)
+    }
+    catch(Exception $e)
     {
         header('HTTP/1.1 400 crash BDD');
         die('Erreur : '.$e->getMessage());
@@ -30,6 +47,8 @@
     header('HTTP/1.1 201 OK');
     echo ('{"statut":"true"}');
   }
-
-
+}
+else {
+  header('HTTP/1.1 400 no method');
+}
 ?>
