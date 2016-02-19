@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<head>
-
-</head>
-<body>
-  <form action="" method="post">
-    <input type="text" name="pseudo" value="">
-    <input type="password" name="password" value="">
-    <input type="submit" name="submit" value="">
-  </form>
-</body>
-
 <?php
   include("connectionBDD.php");
 

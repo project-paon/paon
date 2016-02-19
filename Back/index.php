@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Headers: Content-Type');
 
 $uri = $_SERVER['REQUEST_URI'];
 
@@ -9,6 +12,7 @@ echo 'Home';
 else if ( $uri === "/register")
 {
 include('register.php');
+
 }
 else if ( $uri === "/connexion")
 {
