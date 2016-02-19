@@ -2,8 +2,8 @@
   include("connectionBDD.php");
 
 
-  $pseudo = 'atomicfrog';
-  $password = '12345';
+  $pseudo = $_POST['pseudo'];
+  $password = $_POST['password'];
 
 
    try{
