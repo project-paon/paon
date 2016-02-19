@@ -1,23 +1,26 @@
 <?php
 include('connectionBDD.php');
-   if (isset($_POST['pseudo'])) {
+
+   if (isset($_POST['submit'])) {
      // Création des variables
-     $pseudo=$_POST['pseudo'];
-     $name=$_POST['name'];
-     $firstname=$_POST['firstname'];
-     $email=$_POST['email'];
-     $password=$_POST['password'];
-     $img=$_POST['img'] ;
+     $pseudo=htmlspecialchars($_POST['pseudo']);
+     $name=htmlspecialchars($_POST['name']);
+     $firstname=htmlspecialchars($_POST['firstname']);
+     $email=htmlspecialchars($_POST['email']);
+     $password=htmlspecialchars($_POST['password']);
+     $img=htmlspecialchars($_POST['img']);
 
      // Insertion des informations du formulaire dans la BDD
      try {
-        $testPseudo = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
+        $req = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
+        echo 'hello';
     }
     catch(Exception $e)
     {
         header('HTTP/1.1 400 crash BDD');
         die('Erreur : '.$e->getMessage());
     }
+
 
   if ($testPseudo->rowCount() > 0){
         header('HTTP/1.1 422 pseudo already taken');
@@ -29,13 +32,16 @@ include('connectionBDD.php');
   }elseif(strlen($password) < 8){
         echo ('{"statut":"false","erreur" : "Mot de passe trop court."}, "type":"3"');
       header('HTTP/1.1 422 to short password');
+
   }else {
-    $bdd->query("INSERT INTO users VALUES($pseudo, $name,$firstname,$email,$password,$image)");
+    $passwordcrypt=sha1($password);
+    $bdd->query("INSERT INTO users VALUES('$pseudo','$name','$firstname','$email','$passwordcrypt','$img')");
     header('HTTP/1.1 201 OK');
     $session = generateUniqueId(15) ;
     echo ('{"statut":"true","session":"'.$session.'"}');
   }
 }
+
 else {
   header('HTTP/1.1 400 no method');
 }

@@ -1,10 +1,8 @@
 <?php
   include("connectionBDD.php");
 
-
-  $pseudo = $_POST['pseudo'];
-  $password = $_POST['password'];
-
+  $pseudo = htmlspecialchars($_POST['pseudo']);
+  $password =htmlspecialchars($_POST['password']);
 
    try{
        $testPseudo = $bdd->query("SELECT password FROM users WHERE pseudo = '$pseudo'");
@@ -16,7 +14,7 @@
 
   $test = $testPseudo->fetchAll();
 
-if($test[0][0]=== $password){
+if($test[0][0]=== sha1($password)){
   echo "connexion ok";
   $session = generateUniqueId(15) ;
   $bdd->query("INSERT INTO session VALUES ('','$pseudo','$session')");
