@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<head>
-
-</head>
-<body>
-  <form action="" method="post">
-    <input type="text" name="pseudo" value="">
-    <input type="text" name="name" value="">
-    <input type="text" name="firstname" value="">
-    <input type="email" name="email" value="">
-    <input type="password" name="password" value="">
-    <input type="text" name="img" value="">
-    <input type="submit" name="submit" value="">
-  </form>
-</body>
-
 <?php
 include('connectionBDD.php');
    if (isset($_POST['pseudo'])) {
