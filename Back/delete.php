@@ -18,16 +18,6 @@ if($test[0][0]=== $session){
 // $detweet = $_DELETE['id'];
 $detweet = 2;
   try {
-   $suppr = $bdd->query("SELECT * FROM tweets WHERE id = $detweet");
-  }
-  catch(Exception $e) // Nous allons attraper les exceptions "Exception" s'il y en a une qui est levée.
-
-  {
-    header('HTTP/1.1 400 crash BDD');
-           die('Erreur : '.$e->getMessage());
-          }
-
-  try {
    $bdd->query("DELETE FROM tweets WHERE id = $detweet");
    echo ('{"statut":"true"}');
 }

@@ -1,11 +1,8 @@
 <?php
 include("connectionBDD.php");
 
-// $pseudo = htmlspecialchars($_POST['pseudo']);
-// $session =$_POST['session'];
-
-$pseudo = 'Jula_Croft';
-$session = '9a3fa79f5328b2f';
+$pseudo = htmlspecialchars($_POST['pseudo']);
+$session =$_POST['session'];
 
 try{
     $testUsers = $bdd->query("SELECT session FROM session WHERE pseudo = '$pseudo'");
