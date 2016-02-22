@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Headers: Content-Type');
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
@@ -12,7 +15,7 @@ echo 'Home';
 }
 else if ( $uri === "/register")
 {
-  include('register.php');
+include('register.php');
 }
 else if ( $uri === "/connection")
 {
@@ -34,9 +37,12 @@ else if ( $uri === "/retweet")
 {
 include('retweet.php');
 }
+else if ( $uri === "/like")
+{
+include('like.php');
+}
 else
 {
- header('HTTP/1.1 404 not found');
-
+header('HTTP/1.1 404 not found');
 }
 ?>
