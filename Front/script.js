@@ -16,7 +16,7 @@ $(document).ready(function(){
       data: newuserJson,
       dataType: 'json',
       success: inscription
-    })
+    });
   });
 
   // Action on submittion the connexion form
@@ -26,20 +26,22 @@ $(document).ready(function(){
     user.pseudo = $("#accConnect").val();
     user.password = $("#rekt").val();
     var userJson = JSON.stringify(user);
-    console.log(userJson);
       $.ajax({
       url: 'http://localhost:3000/connection',
       type: 'POST',
       data: userJson,
       dataType: 'json',
       success: connexion
-    })
+    });
   });
 });
+var session = "";
 var connexion = function(data){
   if (data.statut==="true") {
+    sessionStorage.setItem('pseudo', user.pseudo);
+    sessionStorage.setItem('session', data.session);
     window.location.replace("timeline.html");
-    var session = data.session;
+    session = data.session;
   }
   else {
     alert(data.erreur);
@@ -47,8 +49,10 @@ var connexion = function(data){
 };
 var inscription = function(data){
   if (data.statut==="true") {
+    sessionStorage.setItem('pseudo', user.pseudo);
+    sessionStorage.setItem('session', data.session);
     window.location.replace("timeline.html");
-    var session = data.session;
+    session = data.session;
   }
   else {
     alert(data.erreur);

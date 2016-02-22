@@ -1,4 +1,26 @@
 $(document).ready(function() {
+  var user = sessionStorage.getItem('pseudo');
+  var session = sessionStorage.getItem('session');
+
+  // Action on submitting a tweet
+  $(".postPaon").on("submit", function(e){
+    e.preventDefault();
+    var paon = new Objext();
+    paon.message = $('paonText').val();
+    paon.pseudo = user;
+    paon.session = session;
+    var paonJson = JSON.stringify(paon);
+    $.ajax({
+      url: 'http://localhost:3000/tweet',
+      type: 'POST',
+      data: paonJson,
+      dataType: 'json',
+      success: paoned
+    })
+    $('paonText').val('');
+  });
+
+  // Affichage des tweets
   $.ajax({
     url: '/timeline', // La ressource ciblée
     type: 'GET', // Le type de la requête HTTP
@@ -6,7 +28,13 @@ $(document).ready(function() {
     success: allTweet
   });
 
-  Fonction affichage de tweet
+  // Fonction création de tweet
+  var paoned = function(data) {
+    // A faire
+    // retourne la liste de tweet actualisée
+  }
+
+  // Fonction affichage de tweet
   var allTweet = function(data) {
     // var obj = $.parseJSON(data);
     for (var item of data){
@@ -14,3 +42,4 @@ $(document).ready(function() {
       $("#tweets").append(tweetOne);
     }
   };
+});
