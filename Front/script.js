@@ -17,7 +17,6 @@ $(document).ready(function(){
       dataType: 'json',
       success: inscription
     })
-
   });
 
   // Action on submittion the connexion form
