@@ -1,5 +1,4 @@
 <?php
-
   include("connectionBDD.php");
 
   $pseudo = htmlspecialchars($_POST['pseudo']);
