@@ -41,7 +41,6 @@ include('connectionBDD.php');
     echo ('{"statut":"true","session":"'.$session.'"}');
   }
 }
-
 else {
   header('HTTP/1.1 400 no method');
 }
