@@ -9,6 +9,7 @@ include("connectionBDD.php");
 $pseudo = $_POST['pseudo'];
 $session = $_POST['session'];
 
+
 // On récupère toutes les données de la table session.
 
 try{
@@ -26,7 +27,7 @@ if($test[0]["session"] === $session){
 
   try{
 // on récupère les données dans la table tweets dans une variable du même nom.
-      $tweets = $bdd->query('SELECT pseudo, message, image, like_nb, rt_nb FROM tweets INNER JOIN users ON tweets.user_pseudo = users.pseudo');
+      $tweets = $bdd->query('SELECT pseudo, message, image, like_nb, rt_nb, id FROM tweets INNER JOIN users ON tweets.user_pseudo = users.pseudo');
 
     }
     catch(Exception $e)
@@ -38,16 +39,14 @@ if($test[0]["session"] === $session){
     $output ="[";
     // tant qu'il y a des données à intégrer au tableau,
     while ($resultat = $tweets->fetch()){
-      $output .='{"pseudo":"'.$resultat['pseudo'].'","message":"'.$resultat['message'].'","image":"'.$resultat['image'].'","like_nb":"'.$resultat['like_nb'].'","rt_nb":"'.$resultat['rt_nb'].'"},';
+      $output .='{"pseudo":"'.$resultat['pseudo'].'","message":"'.$resultat['message'].'","image":"'.$resultat['image'].'","like_nb":"'.$resultat['like_nb'].'","id":"'.$resultat['id'].'","rt_nb":"'.$resultat['rt_nb'].'"},';
       // on les lui insère,
     }; //puis on referme output.
     $output .="]";
     echo $output;
 
-<<<<<<< HEAD
-=======
+
 // Sinon on déclare l'erreur.
->>>>>>> 7fa2a8e7562b1e72501d92ba19f3249ea7e79cb8
 
 }else{
 
