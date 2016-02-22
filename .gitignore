@@ -1,4 +1,2 @@
 Back/connectionBDD.php
-Back/composer.phar
-Back/composer.json
-Back/vendor
+.gitignore

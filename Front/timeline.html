@@ -17,7 +17,7 @@
             <a href="">
               <img src="" alt="logo" />Acceuil</a>
           </li>
-          <li><a href="">Déconnection</a></li>
+          <li><a href="">Déconnexion</a></li>
         </div>
       </nav>
     </div>
@@ -29,20 +29,13 @@
 
       </div>
       <div class="col-md-7">
-        <div class="row paonPost">
-          <h1>
-            <strong>Paon Posts</strong>
-          </h1>
-          <input class="inputext" type="text" placeholder="Nom complet">
-        </div>
         <div class="row textArea">
-          <form>
+          <form id="postPaon">
             <p>
               <strong>Lache ton PaonPost, fait toi plaisir !!!</strong>
             </p>
-            <textarea name="textarea" rows="5" cols="50" maxlength="140" placeholder="Lache ton PaonPost ici
-           !"></textarea>
-             <input id="Paone" type="submit" value="Paoné"></br>
+            <input id="paonText" type="text" placeholder="Lache ton PaonPost ici!"></input>
+            <input id="Paone" type="submit" value="Paoné"></br>
           </form>
         </div>
       </div>
@@ -61,6 +54,9 @@
 
 
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="timeline.js"></script>
+
 </body>
 
 </html>

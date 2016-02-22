@@ -2,16 +2,21 @@ $(document).ready(function(){
 
   // Action on submitting the inscription form
   $(".insform").on("submit", function(e){
-    console.log("ins");
     e.preventDefault();
     var newuser = new Object();
     newuser.pseudo = $("#inspseudo").val();
-    newuser.name = $("#insname").val();
+    newuser['name'] = $("#insname").val();
     newuser.firstname = $("#insfname").val();
     newuser.email = $("#insmail").val();
     newuser.password = $("#inspw").val();
     var newuserJson = JSON.stringify(newuser);
-    console.log(newuserJson);
+    $.ajax({
+      url: 'http://localhost:3000/register',
+      type: 'POST',
+      data: newuserJson,
+      dataType: 'json',
+      success: inscription
+    });
   });
 
   // Action on submittion the connexion form
@@ -21,15 +26,35 @@ $(document).ready(function(){
     user.pseudo = $("#accConnect").val();
     user.password = $("#rekt").val();
     var userJson = JSON.stringify(user);
-    console.log(userJson);
-    $("#accConnect").val('');
-    $("#rekt").val('');
-    $.ajax({
-      url: '/register',
+      $.ajax({
+      url: 'http://localhost:3000/connection',
       type: 'POST',
       data: userJson,
-      dataType: 'JSON',
+      dataType: 'json',
       success: connexion
-    })
+    });
   });
 });
+var session = "";
+var connexion = function(data){
+  if (data.statut==="true") {
+    sessionStorage.setItem('pseudo', user.pseudo);
+    sessionStorage.setItem('session', data.session);
+    window.location.replace("timeline.html");
+    session = data.session;
+  }
+  else {
+    alert(data.erreur);
+  }
+};
+var inscription = function(data){
+  if (data.statut==="true") {
+    sessionStorage.setItem('pseudo', user.pseudo);
+    sessionStorage.setItem('session', data.session);
+    window.location.replace("timeline.html");
+    session = data.session;
+  }
+  else {
+    alert(data.erreur);
+  }
+};
