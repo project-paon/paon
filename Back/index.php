@@ -4,8 +4,6 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Headers: Content-Type');
 
-// On déclare une variable uri qui récupère la requête uri des url. Et on indique quoi faire pour chaque route.
-
 $uri = $_SERVER['REQUEST_URI'];
 
 switch ($uri){
