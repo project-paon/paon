@@ -46,13 +46,13 @@ include('connectionBDD.php');
 
   if ($testPseudo->rowCount() > 0){
         header('HTTP/1.1 422 pseudo already taken');
-        echo ('{"statut":"false","erreur" : "'.$pseudo.' déjà utilisé"}, "type":"1"');
+        echo ('{"statut":"false","erreur" : "'.$pseudo.' déjà utilisé", "type":"1"}');
   }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    echo ('{"statut":"false","erreur" : "Adresse email invalid."}, "type":"2"');
+    echo ('{"statut":"false","erreur" : "Adresse email invalid.", "type":"2"}');
     header('HTTP/1.1 422 invalid email');
 
   }elseif(strlen($password) < 8){
-        echo ('{"statut":"false","erreur" : "Mot de passe trop court."}, "type":"3"');
+      echo ('{"statut":"false","erreur" : "Mot de passe trop court.", "type":"3"}');
       header('HTTP/1.1 422 to short password');
 
   }else {
