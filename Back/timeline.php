@@ -35,8 +35,6 @@ if($test[0]["session"] === $session){
     echo $output;
 
 
-
-
 }else{
 
   header('HTTP/1.1 412 not connect');

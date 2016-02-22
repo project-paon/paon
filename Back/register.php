@@ -38,7 +38,7 @@ include('connectionBDD.php');
     $bdd->query("INSERT INTO users VALUES('$pseudo','$name','$firstname','$email','$passwordcrypt','$img')");
     header('HTTP/1.1 201 OK');
     $session = generateUniqueId(15) ;
-    echo ('{"statut":"true","session":"'.$session.'"}');
+    echo ('{"statut":"true","pseudo":"'.$pseudo.'","session":"'.$session.'"}');
   }
 }
 else {
