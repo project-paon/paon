@@ -33,6 +33,5 @@ switch ($uri){
   break;
   default:
   header('HTTP/1.1 404 not found');
-endswitch;
-
+}
 ?>
