@@ -1,9 +1,7 @@
 <?php
 include("connectionBDD.php");
 
-// $potweet = $_PUT['id'];
-
-$potweet = 2;
+$potweet = $_PUT['id'];
 
   try {
    $tolike = $bdd->query("SELECT like_nb FROM tweets WHERE id = $potweet");
@@ -15,9 +13,7 @@ $potweet = 2;
   }
 
   $result = $tolike->fetchAll();
-
   $tolike = $result[0]["like_nb"];
-
   $tolike  += 1;
 
   try {
@@ -29,7 +25,6 @@ $potweet = 2;
  }
 
  echo 'Fin du script'; // Ce message s'affiche, ça prouve bien que le script est exécuté jusqu'au bout.
-
  echo "$tolike";
 
 ?>

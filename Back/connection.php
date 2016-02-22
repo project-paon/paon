@@ -15,11 +15,11 @@
   $test = $testPseudo->fetchAll();
 
 if($test[0][0]=== sha1($password)){
-  echo "connexion ok";
   $session = generateUniqueId(15) ;
   $bdd->query("INSERT INTO session VALUES ('','$pseudo','$session')");
   echo '{"statut":"true","session" : "'.$session.'"}';
 }else{
+  echo ('{"statut":"false","erreur" : "Mot de passe invalide", "type":"3"}');
   header('HTTP/1.1 400 wrong password');
 }
 
