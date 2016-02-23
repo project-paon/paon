@@ -7,7 +7,7 @@ $(document).ready(function() {
   // Action on submitting a tweet
   $(".postPaon").on("submit", function(e){
     e.preventDefault();
-    var paon = new Objext();
+    var paon = new Object();
     paon.message = $('paonText').val();
     paon.pseudo = user;
     paon.session = session;
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
   // Affichage des tweets
   $.ajax({
-    url: '/timeline', // La ressource ciblée
+    url: 'http://localhost:3000/timeline', // La ressource ciblée
     type: 'GET', // Le type de la requête HTTP
     dataType: 'json', // Le type de données à recevoir
     success: allTweet
@@ -30,7 +30,12 @@ $(document).ready(function() {
 
   // Fonction création de tweet
   var paoned = function(data) {
-    // A faire
+    if (data.statut==="true") {
+      location.reload(true);
+    }
+    else {
+      alert(data.erreur);
+    }
     // retourne la liste de tweet actualisée
   }
 

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  sessionStorage.clear();
   // Action on submitting the inscription form
   $(".insform").on("submit", function(e){
     e.preventDefault();
