@@ -1,8 +1,17 @@
 <?php
+
+// On se connecte à la base de données.
 include("connectionBDD.php");
+
+// On déclare nos variables. Le htmlspecialchars sert à modifié les caractères spéciaux pour le HTML.
 
 $pseudo = htmlspecialchars($_POST['pseudo']);
 $session =$_POST['session'];
+
+// On sélectionne les données que l'on souhaite dans la base de données. Si ça ne fonctionne pas on envoit un message d'erreur et on kill la connection.
+
+
+// On récupère les numéros de session dans la table "session".
 
 try{
     $testUsers = $bdd->query("SELECT session FROM session WHERE pseudo = '$pseudo'");
@@ -12,9 +21,14 @@ try{
     die('Erreur : '.$e->getMessage());
 }
 
+// On récupère toutes les données sous forme de tableau avec fetchAll.
+
 $test = $testUsers->fetchAll();
 
+// On compare les numéros de session
+
 if($test[0][0]=== $session){
+// On déclare une variable qui récupère l'ID du tweet.
 // $detweet = $_DELETE['id'];
 $detweet = 2;
   try {

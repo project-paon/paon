@@ -1,3 +1,5 @@
+-- on déclare toutes nos tables dans un seul fichier
+
 CREATE TABLE users (
   pseudo VARCHAR(255) NOT NULL PRIMARY KEY,
   name VARCHAR(255),
