@@ -1,6 +1,8 @@
 $(document).ready(function() {
   var user = sessionStorage.getItem('pseudo');
   var session = sessionStorage.getItem('session');
+  console.log(user);
+  console.log(session);
 
   // Action on submitting a tweet
   $(".postPaon").on("submit", function(e){
@@ -9,12 +11,10 @@ $(document).ready(function() {
     paon.message = $('paonText').val();
     paon.pseudo = user;
     paon.session = session;
-    var paonJson = JSON.stringify(paon);
     $.ajax({
       url: 'http://localhost:3000/tweet',
       type: 'POST',
-      data: paonJson,
-      dataType: 'json',
+      data: paon,
       success: paoned
     })
     $('paonText').val('');
@@ -24,7 +24,7 @@ $(document).ready(function() {
   $.ajax({
     url: '/timeline', // La ressource ciblée
     type: 'GET', // Le type de la requête HTTP
-    dataType: 'json' // Le type de données à recevoir
+    dataType: 'json', // Le type de données à recevoir
     success: allTweet
   });
 

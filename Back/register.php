@@ -1,7 +1,7 @@
 <?php
 include('connectionBDD.php');
 
-   if (isset($_POST['submit'])) {
+   if (isset($_POST['pseudo'])) {
      // Création des variables
      $pseudo=htmlspecialchars($_POST['pseudo']);
      $name=htmlspecialchars($_POST['name']);
@@ -13,7 +13,6 @@ include('connectionBDD.php');
      // Insertion des informations du formulaire dans la BDD
      try {
         $req = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
-        echo 'hello';
     }
     catch(Exception $e)
     {
@@ -22,7 +21,7 @@ include('connectionBDD.php');
     }
 
 
-  if ($testPseudo->rowCount() > 0){
+  if ($req->rowCount() > 0){
         header('HTTP/1.1 422 pseudo already taken');
         echo ('{"statut":"false","erreur" : "'.$pseudo.' déjà utilisé", "type":"1"}');
   }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -38,11 +37,11 @@ include('connectionBDD.php');
     $bdd->query("INSERT INTO users VALUES('$pseudo','$name','$firstname','$email','$passwordcrypt','$img')");
     header('HTTP/1.1 201 OK');
     $session = generateUniqueId(15) ;
-    echo ('{"statut":"true","session":"'.$session.'"}');
+    echo ('{"statut":"true","pseudo":"'.$pseudo.'","session":"'.$session.'"}');
   }
 }
 else {
-  header('HTTP/1.1 400 no method');
+  header("HTTP/1.1 400 $pseudo");
 }
 
 
