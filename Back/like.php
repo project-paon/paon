@@ -23,7 +23,7 @@ $potweet = $_PUT['id'];
   $tolike = $result[0]["like_nb"];
   $tolike  += 1;
 
-// on met à jour les données de la table tweet. Avec l'incrémentation. 
+// on met à jour les données de la table tweet. Avec l'incrémentation.
   try {
    $bdd->query("UPDATE tweets SET like_nb = $tolike WHERE id = $potweet");
 }

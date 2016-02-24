@@ -18,7 +18,9 @@ catch(Exception $e) // Nous allons attraper les exceptions "Exception" s'il y en
 
 $result =  $copy->fetchAll();
 $copy = $result[0]["rt_nb"];
-$copy  += 1;  try {
+$copy  += 1;
+
+ try {
    $bdd->query("UPDATE tweets SET rt_nb = $copy WHERE id = $retweet");
 }
  catch(Exception $e) // Nous allons attraper les exceptions "Exception" s'il y en a une qui est levée.

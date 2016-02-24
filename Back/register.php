@@ -43,22 +43,52 @@ include('connectionBDD.php');
   // On oblige les utilisateurs à avoir un mot de passe avec au moins 8 caractères.
   elseif(strlen($password) < 8){
       echo ('{"statut":"false","erreur" : "Mot de passe trop court.", "type":"3"}');
-      header('HTTP/1.1 422 to short password');
+      header('HTTP/1.1 422 too short password');
   }
   else {
-
     // Quand toutes les conditions sont remplies. On crypte le mot de passe avec sha1...
     $passwordcrypt=sha1($password);
     // et on insère les données dans la base de données.
+    $session = generateUniqueId(15) ;
+    if(isset($_FILES['image']) AND !empty($_FILES['image']['name'])) {
+      $maxSize = 2097152;
+      $validExtensions = array('jpg', 'jpeg', 'gif', 'png');
+      if($_FILES['image']['size'] <= $maxSize){
+        //strrchr renvoie l'extension du fichier avec le point. substr permet d'ignorer un des caractère de la chaîne, on précise qu'il s'agit du 1er avec le 1 => ça va donc ignorer le '.' et strtolower va tout mettre en minuscule, pour qu'il n'y ait pas d'erreur sur l'extension si elle est en majuscule.
+
+        $uploadExtensions = strtolower(substr(strrchr($_FILES['image']['name'],'.'),1));
+        if(in_array($uploadExtensions, $validExtensions)) {
+          $path = "image/".$session.".".$uploadExtensions;
+          $result = move_uploaded_file($_FILES['image']['tmp_name'],$path);
+          if($result){
+            $insertImage = $ bdd->prepare("INSERT INTO users SET image = :image WHERE id= :id");
+            $insertImage->execute(array(
+              'image' => $session.".".$uploadExtensions,
+              'id' => $session
+            ));
+          }
+          else {
+            header('HTTP/1.1 422 Erreur durant l\'importation du fichier.');
+          }
+        }
+        else {
+          header('HTTP/1.1 422 Votre photo de profil doit être au format jpg, jpeg, gif, ou png.');
+        }
+      }
+      else {
+        header('HTTP/1.1 422 Votre image ne doit pas dépasser 2Mo');
+      }
+    }
     $bdd->query("INSERT INTO users VALUES('$pseudo','$name','$firstname','$email','$passwordcrypt','$img')");
     header('HTTP/1.1 201 OK');
-    $session = generateUniqueId(15) ;
     echo ('{"statut":"true","session":"'.$session.'"}');
   }
 }
 else {
   header('HTTP/1.1 400 no method');
 }
+
+
 
 // Fonction qui génère un numéro de session unique.
 function generateUniqueId($maxLength = null) {
