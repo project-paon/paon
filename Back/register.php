@@ -14,12 +14,17 @@ include('connectionBDD.php');
      $firstname=htmlspecialchars($_POST['firstname']);
      $email=htmlspecialchars($_POST['email']);
      $password=htmlspecialchars($_POST['password']);
-     $img=htmlspecialchars($_POST['img']);
+     //$img=htmlspecialchars($_FILES['img']);
+
+
+     $uploaddir = '/images';
+     $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+
 
      // Récupérations des données de la table users.
 
      try {
-        $req = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
+        $testPseudo = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
     }
     catch(Exception $e)
     {
@@ -27,8 +32,11 @@ include('connectionBDD.php');
         die('Erreur : '.$e->getMessage());
     }
 
+    // On récupère toutes les données sous forme de tableau avec fetchAll.
+      $test = $testPseudo->fetchAll();
+
 // On vérifie que le pseudo n'existe pas déjà dans la base de données.
-  if ($testPseudo->rowCount() > 0){
+  if ($test->rowCount() > 0){
         header('HTTP/1.1 422 pseudo already taken');
         echo ('{"statut":"false","erreur" : "'.$pseudo.' déjà utilisé", "type":"1"}');
   }
@@ -81,13 +89,25 @@ include('connectionBDD.php');
     }
     $bdd->query("INSERT INTO users VALUES('$pseudo','$name','$firstname','$email','$passwordcrypt','$img')");
     header('HTTP/1.1 201 OK');
-    echo ('{"statut":"true","session":"'.$session.'"}');
+
+    $session = generateUniqueId(15) ;
+    echo ('{"statut":"true","pseudo":"'.$pseudo.'","session":"'.$session.'"}');
+
+    /*---------------------- Gestion des cookies  -----------------------------------------*/
+
+    setcookie("pseudo",$pseudo,time()+3600);
+    setcookie("session",$session,time()+3600);
+
+    /*---------------------- Fin de gestion des cookies -----------------------------------------*/
+
   }
 }
 else {
   header('HTTP/1.1 400 no method');
 }
 
+
+/*---------------------- FUNCTION de création de session -----------------------------------------*/
 
 
 // Fonction qui génère un numéro de session unique.
@@ -128,6 +148,3 @@ function generateUniqueId($maxLength = null) {
     }
     return $hash;
 }
-
-
-?>

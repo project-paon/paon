@@ -4,8 +4,10 @@
 include("connectionBDD.php");
 
 // On déclare les variables qui récupère les données entrées par l'utilisateur.
-$pseudo = $_POST['pseudo'];
-$session = $_POST['session'];
+// $pseudo = $_POST['pseudo'];
+// $session = $_POST['session'];
+$pseudo = $_COOKIE['pseudo'];
+$session = $_COOKIE['session'];
 $message = $_POST['message'];
 
 // On oblige l'utilisateur à envoyer un message de maximum 140 caractères.
@@ -21,7 +23,6 @@ if(strlen ($message) <= 140 ){
 
 // On récupère les données sous forme de tableau avec fetchAll dans la variable test.
   $test = $sessionTest->fetchAll();
-
   if($test[0]["session"] === $session){
       try{
         // On insère ses données dans la tablea tweets.
@@ -43,5 +44,3 @@ else {
     header('HTTP/1.1 412 too long');
     echo ('{"statut":"false","erreur" : "message trop long"}');
 }
-
-?>

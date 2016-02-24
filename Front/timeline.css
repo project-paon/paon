@@ -7,15 +7,12 @@ html body{
 
 body{
   background-color: black;
-  background-image: url("../Front/img/Paon-5.jpg")
+  background-image: url("/img/Paon-5.jpg")
 }
 header {
-  position: fixed;
-  padding-bottom: 5px;
   top: 0;
   background: linear-gradient(to right, #011D65, #0FABF8);
   color: black;
-  list-style-type: none;
   width: 100%;
   height: 100px;
   border-radius: 5px;
@@ -23,6 +20,8 @@ header {
   list-style-type: none;
   padding-bottom: 5px;
   top: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -47,10 +46,12 @@ li a {
 
 .container {
   margin-top: 100px;
-  width: 1100px;
+  width: 100%;
   height: 100%;
-  background-color: white;
-  border: solid 2px black;
+
+
+  margin-left: auto;
+  margin-right: auto;
 
 }
 #Paone{
@@ -66,14 +67,10 @@ li a {
   background: linear-gradient(to right, #011D65, #0FABF8);
   border: 1px black solid;
   border-radius: 5%;
-  color: white;
   text-align: center;
   margin-bottom: 10px;
 }
-.membre {
-  font-size: 14px;
-  padding-right: 18px;
-}
+
 
 .paonPost {
   padding-right: 18px;
@@ -88,6 +85,13 @@ footer {
 }
 
 
+.paonee{
+  background-color: white;
+  border: solid 3px black;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /*html, body {

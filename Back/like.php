@@ -7,6 +7,8 @@ include("connectionBDD.php");
 // On déclare une variable qui récupère l'ID du tweet.
 
 $potweet = $_PUT['id'];
+$pseudo = $_COOKIE['pseudo'];
+$session = $_COOKIE['session'];
 
   try {
    $tolike = $bdd->query("SELECT like_nb FROM tweets WHERE id = $potweet");
@@ -34,5 +36,3 @@ $potweet = $_PUT['id'];
 
  echo 'Fin du script'; // Ce message s'affiche, ça prouve bien que le script est exécuté jusqu'au bout.
  echo "$tolike";
-
-?>

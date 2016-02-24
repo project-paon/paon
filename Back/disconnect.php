@@ -4,8 +4,11 @@ include("connectionBDD.php");
 
 // On déclare nos variables. Le htmlspecialchars sert à modifié les caractères spéciaux pour le HTML.
 
-$pseudo = htmlspecialchars($_POST['pseudo']);
-$session =$_POST['session'];
+// $pseudo = htmlspecialchars($_POST['pseudo']);
+// $session =$_POST['session'];
+
+$pseudo = $_COOKIE['pseudo'];
+$session = $_COOKIE['session'];
 
 // On récupère le numéro de session dans la table session.
 try{
@@ -22,12 +25,13 @@ $test = $testUsers->fetchAll();
 try {
   //On supprime la session de la tablea du même nom.
  $bdd->query("DELETE FROM session WHERE session = '$session'");
+ unset($_COOKIE[$session]);
+ unset($_COOKIE[$pseudo]);
+
  echo ('{"statut":"true"}');
 }
 catch(Exception $e) // Nous allons attraper les exceptions "Exception" s'il y en a une qui est levée.
 {
  header('HTTP/1.1 400 crash BDD');
         die('Erreur : '.$e->getMessage());
-       }
-
-?>
+}
