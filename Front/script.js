@@ -10,6 +10,7 @@ $(document).ready(function(){
     newuser.email = $("#insmail").val();
     newuser.password = $("#inspw").val();
 
+
     $.ajax({
       url: 'http://localhost:3000/register',
       type: 'POST',
@@ -26,6 +27,7 @@ $(document).ready(function(){
     user.pseudo = $("#accConnect").val();
     user.password = $("#rekt").val();
     //var userJson = JSON.stringify(user);
+
       $.ajax({
       url: 'http://localhost:3000/connection',
       type: 'POST',
@@ -38,7 +40,7 @@ $(document).ready(function(){
 var session = "";
 var connexion = function(data){
   if (data.statut==="true") {
-    sessionStorage.setItem('pseudo', user.pseudo);
+    sessionStorage.setItem('pseudo', data.pseudo);
     sessionStorage.setItem('session', data.session);
     window.location.replace("timeline.html");
     session = data.session;
@@ -49,7 +51,7 @@ var connexion = function(data){
 };
 var inscription = function(data){
   if (data.statut==="true") {
-    sessionStorage.setItem('pseudo', user.pseudo);
+    sessionStorage.setItem('pseudo', data.pseudo);
     sessionStorage.setItem('session', data.session);
     window.location.replace("timeline.html");
     session = data.session;

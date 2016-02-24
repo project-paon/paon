@@ -4,6 +4,7 @@
 
 include('connectionBDD.php');
 
+
 // Quand on clic sur submit...
    if (isset($_POST['submit'])) {
 
@@ -34,7 +35,7 @@ include('connectionBDD.php');
 
     // On récupère toutes les données sous forme de tableau avec fetchAll.
       $test = $testPseudo->fetchAll();
-
+ 
 // On vérifie que le pseudo n'existe pas déjà dans la base de données.
   if ($test->rowCount() > 0){
         header('HTTP/1.1 422 pseudo already taken');
@@ -54,7 +55,7 @@ include('connectionBDD.php');
       header('HTTP/1.1 422 to short password');
   }
   else {
-    
+
     // Quand toutes les conditions sont remplies. On crypte le mot de passe avec sha1...
     $passwordcrypt=sha1($password);
     // et on insère les données dans la base de données.
@@ -65,7 +66,7 @@ include('connectionBDD.php');
   }
 }
 else {
-  header('HTTP/1.1 400 no method');
+  header("HTTP/1.1 400 $pseudo");
 }
 
 // Fonction qui génère un numéro de session unique.
