@@ -9,11 +9,11 @@ $(document).ready(function(){
     newuser.firstname = $("#insfname").val();
     newuser.email = $("#insmail").val();
     newuser.password = $("#inspw").val();
-    var newuserJson = JSON.stringify(newuser);
+
     $.ajax({
       url: 'http://localhost:3000/register',
       type: 'POST',
-      data: newuserJson,
+      data: newuser,
       dataType: 'json',
       success: inscription
     });
@@ -25,11 +25,11 @@ $(document).ready(function(){
     var user = new Object();
     user.pseudo = $("#accConnect").val();
     user.password = $("#rekt").val();
-    var userJson = JSON.stringify(user);
+    //var userJson = JSON.stringify(user);
       $.ajax({
       url: 'http://localhost:3000/connection',
       type: 'POST',
-      data: userJson,
+      data: user,
       dataType: 'json',
       success: connexion
     });

@@ -14,12 +14,17 @@ include('connectionBDD.php');
      $firstname=htmlspecialchars($_POST['firstname']);
      $email=htmlspecialchars($_POST['email']);
      $password=htmlspecialchars($_POST['password']);
-     $img=htmlspecialchars($_POST['img']);
+     //$img=htmlspecialchars($_FILES['img']);
+
+
+     $uploaddir = '/images';
+     $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+
 
      // Récupérations des données de la table users.
 
      try {
-        $req = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
+        $testPseudo = $bdd->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
     }
     catch(Exception $e)
     {
@@ -27,8 +32,11 @@ include('connectionBDD.php');
         die('Erreur : '.$e->getMessage());
     }
 
+    // On récupère toutes les données sous forme de tableau avec fetchAll.
+      $test = $testPseudo->fetchAll();
+
 // On vérifie que le pseudo n'existe pas déjà dans la base de données.
-  if ($testPseudo->rowCount() > 0){
+  if ($test->rowCount() > 0){
         header('HTTP/1.1 422 pseudo already taken');
         echo ('{"statut":"false","erreur" : "'.$pseudo.' déjà utilisé", "type":"1"}');
   }
@@ -46,7 +54,7 @@ include('connectionBDD.php');
       header('HTTP/1.1 422 to short password');
   }
   else {
-
+    
     // Quand toutes les conditions sont remplies. On crypte le mot de passe avec sha1...
     $passwordcrypt=sha1($password);
     // et on insère les données dans la base de données.
