@@ -5,6 +5,27 @@ $(document).ready(function() {
   userAuth.session = session;
   userAuth.pseudo = user;
 
+  // Fonction création de tweet
+  var paoned = function(data) {
+    if (data.statut==="true") {
+      location.reload(true);
+    }
+    else {
+      alert(data.erreur);
+    }
+  };
+
+  // Fonction affichage de tweet
+  var allTweet = function(data) {
+    console.log("success");
+    console.log(data);
+    // var obj = $.parseJSON(data);
+    for (var item of data){
+      var tweetOne = item.img + '<h2>' + item.user_pseudo + '</h2>' + '<br><p class="tweet">' + item.message + '<p>' ;
+      $(".paonee").append(tweetOne);
+    }
+  };
+
   // Action on submitting a tweet
   $("#postPaon").on("submit", function(e){
     e.preventDefault();
@@ -23,33 +44,19 @@ $(document).ready(function() {
   });
 
   // Affichage des tweets
+  console.log("GET timeline");
+  console.log(allTweet);
   $.ajax({
     url: 'http://localhost:3000/timeline', // La ressource ciblée
     type: 'POST', // Le type de la requête HTTP
     data: userAuth,
     dataType: 'json',
+    contentType: 'application/json',
     success: allTweet,
-    error: function(yolo, st, er){console.log(yolo, st, er);}
+    error: function(yolo, st, er){
+      console.log("error timeline");
+      console.log(yolo, st, er);}
   });
 
-  // Fonction création de tweet
-  var paoned = function(data) {
-    if (data.statut==="true") {
-      location.reload(true);
-    }
-    else {
-      alert(data.erreur);
-    }
-  }
 
-  // Fonction affichage de tweet
-  var allTweet = function(data) {
-    console.log("success");
-    console.log(data);
-    // var obj = $.parseJSON(data);
-    for (var item of data){
-      var tweetOne = item.img + '<h2>' + item.user_pseudo + '</h2>' + '<br><p class="tweet">' + item.message + '<p>' ;
-      $(".paonee").append(tweetOne);
-    }
-  };
 });

@@ -60,4 +60,3 @@ if($test[0]["session"] === $session){
   header('HTTP/1.1 412 not connect');
   echo ('{"statut":"false","erreur" : "session expired"}');
 }
-?>

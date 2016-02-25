@@ -3,7 +3,9 @@
 // On autorise les accès au contenu de l'API.
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT');
-header('content-type: application/json; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
+header("Access-Control-Allow-Headers: Content-Type");
+
 
 $uri = $_SERVER['REQUEST_URI'];
 
