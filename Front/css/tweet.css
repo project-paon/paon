@@ -1,13 +1,9 @@
-html, body {
-  display: inline-block;
-}
 .tweet {
   background-color: #F0FAF9;
-  border: solid 2px black;
+  border: solid 2px #001A61;
   border-radius: 5px;
   width: 500px;
-  height: 170px;
-  list-style-type: none;
+  height: 165px;
   color: #009E99;
   position: relative;
 }
@@ -26,25 +22,20 @@ html, body {
   margin-right: auto;
   background-color: white;
 }
-.chiffre {
-  margin: 0;
-  text-align: center;
-  bottom: 2px;
-  height: 25px;
-  vertical-align: bottom;
-  text-align: right;
-  list-style-position: inside;
-}
+
 .profils {
   width: 50px;
   height: 50px;
   float: left;
+  position: absolute;
+  left : 5%;
+  border: solid 1px #001A61; 
 }
 .pseudo {
   bottom: 50px;
   position: absolute;
   bottom: 5%;
-  left:10%
+  left: 15%
 }
 .like {
   width: 20px;
@@ -54,22 +45,19 @@ html, body {
 }
 .vue {
   width: 20px;
-  height: 20px;
-
+  height: 21px;
   position: absolute;
-  right: 15%
+  right: 16%
 }
 .retweet {
   width: 20px;
   height: 20px;
   position: absolute;
-  right: 10%;
+  right: 11%;
 }
 .compteur {
   width: 20px;
   height: 20px;
-
   position: absolute;
-  right:5%;
-
+  right: 5%;
 }
