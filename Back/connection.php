@@ -13,7 +13,7 @@
 
 
   // On récupère les mots de passe par rapport aux pseudo dans la table "users".
-     try{
+   try{
        $testPseudo = $bdd->query("SELECT password FROM users WHERE pseudo = '$pseudo'");
    }catch(Exception $e)
    {
@@ -27,13 +27,27 @@
 // On compare les mots de passe et pseudo par rapport à ceux de la base de données.
 if($test[0][0]=== sha1($password)){
   $session = generateUniqueId(15) ;
+  $bdd->query("DELETE FROM session ");
   $bdd->query("INSERT INTO session VALUES ('','$pseudo','$session')");
   echo '{"statut":"true","pseudo":"'.$pseudo.'","session" : "'.$session.'"}';
+
+  /*---------------------- Gestion des cookies  -----------------------------------------*/
+
+  setcookie("pseudo",$pseudo,time()+3600);
+  setcookie("session",$session,time()+3600);
+
+  /*---------------------- Fin de gestion des cookies -----------------------------------------*/
+
+
+
 }else{
   echo ('{"statut":"false","erreur" : "Mot de passe invalide", "type":"3"}');
   header('HTTP/1.1 400 wrong password');
 }
 
+
+
+/*---------------------- FUNCTION de création de session -----------------------------------------*/
 
 // Fonction qui crée un numéro de session unique.
 function generateUniqueId($maxLength = null) {

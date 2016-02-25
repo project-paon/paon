@@ -5,8 +5,11 @@ include("connectionBDD.php");
 
 // On déclare nos variables. Le htmlspecialchars sert à modifié les caractères spéciaux pour le HTML.
 
-$pseudo = htmlspecialchars($_POST['pseudo']);
-$session =$_POST['session'];
+// $pseudo = htmlspecialchars($_POST['pseudo']);
+// $session =$_POST['session'];
+
+$pseudo = $_COOKIE['pseudo'];
+$session = $_COOKIE['session'];
 
 // On sélectionne les données que l'on souhaite dans la base de données. Si ça ne fonctionne pas on envoit un message d'erreur et on kill la connection.
 

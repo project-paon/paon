@@ -4,8 +4,10 @@
 include("connectionBDD.php");
 
 // On déclare les variables qui récupère les données entrées par l'utilisateur.
-$pseudo = $_POST['pseudo'];
-$session = $_POST['session'];
+// $pseudo = $_POST['pseudo'];
+// $session = $_POST['session'];
+$pseudo = $_COOKIE['pseudo'];
+$session = $_COOKIE['session'];
 $message = $_POST['message'];
 
 // On oblige l'utilisateur à envoyer un message de maximum 140 caractères.

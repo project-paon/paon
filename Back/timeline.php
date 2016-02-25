@@ -6,11 +6,8 @@ include("connectionBDD.php");
 
 // On déclare les variables.
 
-$pseudo = $_POST['pseudo'];
-$session = $_POST['session'];
-
-$pseudo = 'atomicfrog';
-$session = 'a62daf155b4b4bd';
+$pseudo = $_COOKIE['pseudo'];
+$session = $_COOKIE['session'];
 
 
 // On récupère toutes les données de la table session.
@@ -47,7 +44,7 @@ if($test[0]["session"] === $session){
       $tmp["like_nb"]=$resultat['like_nb'];
       $tmp["rt_nb"]=$resultat['rt_nb'];
       $tmp["id"]=$resultat['id'];
-      array_push($tmp); // Remplissage avec un tableaux temporaire contenant les données du tweets
+       // Remplissage avec un tableaux temporaire contenant les données du tweets
       array_push($output,$tmp);
 
     };
