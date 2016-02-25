@@ -21,7 +21,7 @@ $(document).ready(function() {
     console.log(data);
     // var obj = $.parseJSON(data);
     for (var item of data){
-      var tweetOne = item.img + '<h2>' + item.user_pseudo + '</h2>' + '<br><p class="tweet">' + item.message + '<p>' ;
+      var tweetOne = '<h2>' + item.pseudo + '</h2>' + '</br><p class="tweet">' + item.message + '<p>' + '</br><p>Likes :' + item.like_nb + '</p>' + '<p>Repaons :' + item.rt_nb + '</p>';
       $(".paonee").append(tweetOne);
     }
   };
