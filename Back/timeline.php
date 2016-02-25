@@ -45,7 +45,6 @@ if($test[0]["session"] === $session){
       $tmp["like_nb"]=$resultat['like_nb'];
       $tmp["rt_nb"]=$resultat['rt_nb'];
       $tmp["id"]=$resultat['id'];
-      array_push($tmp); // Remplissage avec un tableaux temporaire contenant les données du tweets
       array_push($output,$tmp);
 
     };

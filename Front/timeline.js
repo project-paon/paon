@@ -4,16 +4,15 @@ $(document).ready(function() {
   var userAuth = new Object();
   userAuth.session = session;
   userAuth.pseudo = user;
-  console.log(user);
-  console.log(session);
 
   // Action on submitting a tweet
   $("#postPaon").on("submit", function(e){
     e.preventDefault();
     var paon = new Object();
-    paon.message = $('paonText').val();
+    paon.message = $('#paonText').val();
     paon.pseudo = user;
     paon.session = session;
+    console.log(paon);
     $.ajax({
       url: 'http://localhost:3000/tweet',
       type: 'POST',
@@ -41,7 +40,6 @@ $(document).ready(function() {
     else {
       alert(data.erreur);
     }
-    // retourne la liste de tweet actualisée
   }
 
   // Fonction affichage de tweet
