@@ -15,7 +15,12 @@ include('connectionBDD.php');
      $firstname=htmlspecialchars($_POST['firstname']);
      $email=htmlspecialchars($_POST['email']);
      $password=htmlspecialchars($_POST['password']);
-     $img=htmlspecialchars($_POST['img']);
+     //$img=htmlspecialchars($_FILES['img']);
+
+
+     $uploaddir = '/images';
+     $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+
 
      // Récupérations des données de la table users.
 
@@ -30,6 +35,7 @@ include('connectionBDD.php');
 
     // On récupère toutes les données sous forme de tableau avec fetchAll.
       $test = $testPseudo->fetchAll();
+ 
 // On vérifie que le pseudo n'existe pas déjà dans la base de données.
   if ($test->rowCount() > 0){
         header('HTTP/1.1 422 pseudo already taken');

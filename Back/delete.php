@@ -30,7 +30,7 @@ $test = $testUsers->fetchAll();
 if($test[0][0]=== $session){
 // On déclare une variable qui récupère l'ID du tweet.
 // $detweet = $_DELETE['id'];
-$detweet = 2;
+$detweet = $_DELETE['id'];
   try {
    $bdd->query("DELETE FROM tweets WHERE id = $detweet");
    echo ('{"statut":"true"}');
