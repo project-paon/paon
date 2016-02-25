@@ -21,7 +21,6 @@ if(strlen ($message) <= 140 ){
 
 // On récupère les données sous forme de tableau avec fetchAll dans la variable test.
   $test = $sessionTest->fetchAll();
-
   if($test[0]["session"] === $session){
       try{
         // On insère ses données dans la tablea tweets.

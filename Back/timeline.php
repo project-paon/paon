@@ -8,7 +8,7 @@ include("connectionBDD.php");
 
 $pseudo = $_POST['pseudo'];
 $session = $_POST['session'];
-
+error_log($pseudo);
 
 // On récupère toutes les données de la table session.
 
@@ -42,7 +42,7 @@ if($test[0]["session"] === $session){
       $output .='{"pseudo":"'.$resultat['pseudo'].'","message":"'.$resultat['message'].'","image":"'.$resultat['image'].'","like_nb":"'.$resultat['like_nb'].'","id":"'.$resultat['id'].'","rt_nb":"'.$resultat['rt_nb'].'"},';
       // on les lui insère,
     }; //puis on referme output.
-    $output .="]";
+    $output .="]";kevin
     echo $output;
 
 
