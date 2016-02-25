@@ -48,5 +48,3 @@ else {
   echo ('{"statut":"false","erreur" : "Vous n\'avez pas le droit de supprimer ce tweet ", "type":"2"}');
      header('HTTP/1.1 401 Non autorisé');
    }
-
-?>

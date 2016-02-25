@@ -9,6 +9,10 @@ include("connectionBDD.php");
 $pseudo = $_COOKIE['pseudo'];
 $session = $_COOKIE['session'];
 
+// $pseudo = $_POST['pseudo'];
+// $session = $_POST['session'];
+
+
 
 // On récupère toutes les données de la table session.
 
@@ -38,12 +42,13 @@ if($test[0]["session"] === $session){
     //Création du tableaux output qui va recevoir les données,
     $output = array();
     while ($resultat = $tweets->fetch()){
+
       $tmp["pseudo"]=$resultat['pseudo'];
       $tmp["message"]=$resultat['message'];
       $tmp["image"]=$resultat['image'];
       $tmp["like_nb"]=$resultat['like_nb'];
       $tmp["rt_nb"]=$resultat['rt_nb'];
-      $tmp["id"]=$resultat['id'];
+
        // Remplissage avec un tableaux temporaire contenant les données du tweets
       array_push($output,$tmp);
 
@@ -60,4 +65,3 @@ if($test[0]["session"] === $session){
   header('HTTP/1.1 412 not connect');
   echo ('{"statut":"false","erreur" : "session expired"}');
 }
-?>

@@ -35,5 +35,3 @@ catch(Exception $e) // Nous allons attraper les exceptions "Exception" s'il y en
  header('HTTP/1.1 400 crash BDD');
         die('Erreur : '.$e->getMessage());
 }
-
-?>

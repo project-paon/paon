@@ -7,13 +7,12 @@ html body{
 
 body{
   background-color: black;
-  background-image: url("../Front/img/Paon-5.jpg")
+  background-image: url("/img/Paon-5.jpg")
 }
 header {
   top: 0;
   background: linear-gradient(to right, #011D65, #0FABF8);
   color: black;
-  list-style-type: none;
   width: 100%;
   height: 100px;
   border-radius: 5px;
@@ -68,7 +67,6 @@ li a {
   background: linear-gradient(to right, #011D65, #0FABF8);
   border: 1px black solid;
   border-radius: 5%;
-  color: white;
   text-align: center;
   margin-bottom: 10px;
 }

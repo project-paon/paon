@@ -119,6 +119,3 @@ function generateUniqueId($maxLength = null) {
     }
     return $hash;
 }
-
-
-?>

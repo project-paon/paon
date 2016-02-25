@@ -27,11 +27,16 @@
 // On compare les mots de passe et pseudo par rapport à ceux de la base de données.
 if($test[0][0]=== sha1($password)){
   $session = generateUniqueId(15) ;
-  $bdd->query("DELETE FROM session ");
+  $bdd->query("DELETE FROM session WHERE pseudo = $pseudo");
   $bdd->query("INSERT INTO session VALUES ('','$pseudo','$session')");
   echo '{"statut":"true","pseudo":"'.$pseudo.'","session" : "'.$session.'"}';
 
   /*---------------------- Gestion des cookies  -----------------------------------------*/
+
+  if(isset($_COOKIE[$pseudo])){
+    unset($_COOKIE[$session]);
+    unset($_COOKIE[$pseudo]);
+  }
 
   setcookie("pseudo",$pseudo,time()+3600);
   setcookie("session",$session,time()+3600);

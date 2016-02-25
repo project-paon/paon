@@ -1,30 +1,58 @@
-html{
-  margin:0;
+.tweet {
+  background-color: #F0FAF9;
+  border: solid 2px black;
+  border-radius: 5px;
+  width: 500px;
+  height: 250px;
+  list-style-type: none;
+  color: #009E99;
 }
-
-
-.container{
-  background-color: blue;
-  
-  width: 800px;
-  height: 500px;
-
-
+.info {
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  height: 55px;
+  position: relative;
 }
-
-.profils{
+.postt {
+  width: 400px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+.chiffre {
+  margin: 0;
+  text-align: center;
+  bottom: 2px;
+  height: 25px;
+  vertical-align: bottom;
+  text-align: right;
+}
+.profils {
   width: 50px;
   height: 50px;
+  float: left;
 }
-
-.like{
+.pseudo {
+  bottom: 50px;
+}
+.like {
   width: 20px;
   height: 20px;
 }
-
-.vue{
+.vue {
   width: 20px;
-  height: 20px
-  border: solid 1px black;
-  background: white;
+  height: 20px;
+  background-color: #FAEBD7;
+}
+.retweet {
+  width: 20px;
+  height: 20px;
+}
+.compteur {
+  width: 20px;
+  height: 20px;
+  background-color: #FAEBD7;
 }

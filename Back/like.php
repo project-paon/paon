@@ -36,5 +36,3 @@ $session = $_COOKIE['session'];
 
  echo 'Fin du script'; // Ce message s'affiche, ça prouve bien que le script est exécuté jusqu'au bout.
  echo "$tolike";
-
-?>
