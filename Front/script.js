@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   // Action on submitting the inscription form
-  $(".insform").on("submit", function(e){
+  $(".insForm").on("submit", function(e){
     e.preventDefault();
     var newuser = new Object();
     newuser.pseudo = $("#inspseudo").val();
@@ -18,11 +18,11 @@ $(document).ready(function(){
   });
 
   // Action on submittion the connexion form
-  $(".conform").on("submit", function(e){
+  $(".connectForm").on("submit", function(e){
     e.preventDefault();
     var user = new Object();
     user.pseudo = $("#accConnect").val();
-    user.password = $("#rekt").val();
+    user.password = $("#password").val();
       $.ajax({
       url: 'http://localhost:3000/connection',
       type: 'POST',

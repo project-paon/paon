@@ -49,13 +49,11 @@ li a {
   margin-top: 100px;
   width: 100%;
   height: 100%;
-
-
   margin-left: auto;
   margin-right: auto;
 
 }
-#Paone{
+#buttonPaon {
   color: #292f33;
   background-color: #e99110;
   border-radius: 10%;
@@ -64,13 +62,20 @@ li a {
   font-weight: bold;
   background-image: linear-gradient(#ffcc4d, #e99110);
 }
-.membre, .paonPost, .textArea, .username {
+
+
+textarea {
+  border-radius: 20px;
+}
+
+.textArea {
   background: linear-gradient(to right, #011D65, #0FABF8);
   border: 1px black solid;
   border-radius: 5%;
   color: white;
   text-align: center;
   margin-bottom: 10px;
+  padding-right: 18px;
 }
 
 
@@ -78,13 +83,6 @@ li a {
   padding-right: 18px;
 }
 
-.textArea {
-  padding-right: 18px;
-}
-
-
-footer {
-}
 
 #paonPost{
   margin-left: auto;
@@ -99,98 +97,3 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
-
-
-/*html, body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
-
-body {
-  display : table;
-  width: 100%;
-}
-
-nav {
-  position: fixed;
-  padding-bottom: 5px;
-  top: 0;
-  background-color: white;
-  color: black;
-  list-style-type: none;
-  width: 100%;
-  height: 40px;
-}
-.menu {
-  position: absolute;
-  left: 2%;
-  top: 22%;
-}
-.menu img {
-  width: 24px;
-  height: 24px;
-}
-.menu li {
-  display: inline;
-  padding-right: 10px;
-  box-sizing: border-box;
-}
-.menu li a {
-  color: black;
-}
-li a {
-  text-decoration: none;
-}
-.menu li:hover {
-  border-bottom: 2px blue solid;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 45px;
-  background-color: black;
-}
-
-
-.membre, .paonPost, .textArea {
-  padding: 10px;
-  position: absolute;
-  background-color: white;
-  border: 1px black solid;
-  width: 30%;
-
-  border-radius: 5%;
-}
-.membre {
-  top: 10%;
-  left: 5%;
-  font-size: 14px;
-  padding-right: 18px;
-  height: 17%;
-  width: 30%;
-}
-
-.paonPost {
-  top: 10%;
-  padding-right: 18px;
-  height: 60%;
-  right: 5%;
-  width: 50%;
-}
-
-.textArea {
-  top: 75%;
-  padding-right: 18px;
-  height: 30%;
-  right: 5%;
-  width: 50%;
-}
-
-
-footer {
-  clear: both;
-  display : table-row;
-  height: 100px;
-}*/
