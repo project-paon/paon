@@ -5,7 +5,7 @@
 include('connectionBDD.php');
 
 // Quand on clic sur submit...
-   if (isset($_POST['submit'])) {
+   if ($_POST['pseudo']){
 
        // On déclare nos variables. Le htmlspecialchars sert à modifié les caractères spéciaux pour le HTML.
 
@@ -34,9 +34,9 @@ include('connectionBDD.php');
 
     // On récupère toutes les données sous forme de tableau avec fetchAll.
       $test = $testPseudo->fetchAll();
-
+      
 // On vérifie que le pseudo n'existe pas déjà dans la base de données.
-  if ($test->rowCount() > 0){
+  if (!empty($test)){
         header('HTTP/1.1 422 pseudo already taken');
         echo ('{"statut":"false","erreur" : "'.$pseudo.' déjà utilisé", "type":"1"}');
   }
@@ -69,7 +69,7 @@ include('connectionBDD.php');
           $path = "image/".$session.".".$uploadExtensions;
           $result = move_uploaded_file($_FILES['image']['tmp_name'],$path);
           if($result){
-            $insertImage = $ bdd->prepare("INSERT INTO users SET image = :image WHERE id= :id");
+            $insertImage = $bdd->prepare("INSERT INTO users SET image = :image WHERE id= :id");
             $insertImage->execute(array(
               'image' => $session.".".$uploadExtensions,
               'id' => $session
@@ -103,7 +103,7 @@ include('connectionBDD.php');
   }
 }
 else {
-  header('HTTP/1.1 400 no method');
+  header('HTTP/1.1 400 no post');
 }
 
 
