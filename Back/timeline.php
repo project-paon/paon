@@ -6,8 +6,12 @@ include("connectionBDD.php");
 
 // On déclare les variables.
 
-$pseudo = $_POST['pseudo'];
-$session = $_POST['session'];
+$pseudo = $_COOKIE['pseudo'];
+$session = $_COOKIE['session'];
+
+// $pseudo = $_POST['pseudo'];
+// $session = $_POST['session'];
+
 
 
 // On récupère toutes les données de la table session.
@@ -35,15 +39,23 @@ if($test[0]["session"] === $session){
         header('HTTP/1.1 400 crash BDD');
         die('Erreur : '.$e->getMessage());
     }
-    // Dans la variable output,
-    $output ="[";
-    // tant qu'il y a des données à intégrer au tableau,
+    //Création du tableaux output qui va recevoir les données,
+    $output = array();
     while ($resultat = $tweets->fetch()){
-      $output .='{"pseudo":"'.$resultat['pseudo'].'","message":"'.$resultat['message'].'","image":"'.$resultat['image'].'","like_nb":"'.$resultat['like_nb'].'","id":"'.$resultat['id'].'","rt_nb":"'.$resultat['rt_nb'].'"},';
-      // on les lui insère,
-    }; //puis on referme output.
-    $output .="]";
-    echo $output;
+
+      $tmp["pseudo"]=$resultat['pseudo'];
+      $tmp["message"]=$resultat['message'];
+      $tmp["image"]=$resultat['image'];
+      $tmp["like_nb"]=$resultat['like_nb'];
+      $tmp["rt_nb"]=$resultat['rt_nb'];
+
+       // Remplissage avec un tableaux temporaire contenant les données du tweets
+      array_push($output,$tmp);
+
+    };
+    $outputJson = json_encode($output);
+    echo $outputJson;  //Exportation du tableau formater en JSON
+
 
 
 // Sinon on déclare l'erreur.
@@ -53,4 +65,3 @@ if($test[0]["session"] === $session){
   header('HTTP/1.1 412 not connect');
   echo ('{"statut":"false","erreur" : "session expired"}');
 }
-?>

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  sessionStorage.clear();
   // Action on submitting the inscription form
   $(".insForm").on("submit", function(e){
     e.preventDefault();
@@ -9,10 +10,13 @@ $(document).ready(function(){
     newuser.firstname = $("#insfname").val();
     newuser.email = $("#insmail").val();
     newuser.password = $("#inspw").val();
+
+
     $.ajax({
       url: 'http://localhost:3000/register',
       type: 'POST',
       data: newuser,
+      dataType: 'json',
       success: inscription
     });
   });
@@ -23,10 +27,14 @@ $(document).ready(function(){
     var user = new Object();
     user.pseudo = $("#accConnect").val();
     user.password = $("#password").val();
+
+    //var userJson = JSON.stringify(user);
+
       $.ajax({
       url: 'http://localhost:3000/connection',
       type: 'POST',
       data: user,
+      dataType: 'json',
       success: connexion
     });
   });
