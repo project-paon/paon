@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Paon</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  </head>
-  <body>
-    <ul class="slideshow">
-  <li>
-    <span></span>
-  </li>
-  <li>
-    <span></span>
-  </li>
-  <li>
-    <span></span>
-  </li>
-    <header>
-      <nav>
-        <div class="menu">
-          <div class="acceuil">
-          <li><a>Acceuil</a></li>
-        </div>
-        </div>
-        <div class="lang">
-          <form class="conform">
-            <input id="accConnect" class="inputext" type="text" placeholder="Téléphone, email ou identifiant"></br>
-            <input id="rekt" type="password" placeholder="Mot de passe">
-            <input id="connexion" type="submit" value="Connexion"></br>
-          </form>
 
-        </div>
-      </nav>
-    </header>
-    <div class="container">
-      <div class="description">
-        <h1>Bienvenue sur Paon.</h1>
-        <p></p>
+<head>
+  <meta charset="utf-8">
+  <title>Paon</title>
+  <link rel="icon" type="image/png" href="img/paon-favicon.ico" sizes="32x32" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
 
-        <a href=""></a>
-        <a href=""></a>
+<body>
+
+  <header>
+    <nav>
+      <div class="menu">
+          <a href="#"><img src="img/15-best-peacock-logo.gif" /></a>
       </div>
-
-      <div class="form2">
-        <form class="insform">
-          <p><strong>Nouveau sur Paon?</strong> Inscrivez-vous</p>
-          <input id="insname" class="inputext" type="text" placeholder="Nom"></br>
-          <input id="insfname" class="inputext" type="text" placeholder="Prénom"></br>
-          <input id="insmail" class="inputext" type="text" placeholder="Adresse email"></br>
-          <input id="inspseudo" class="inputext" type="text" placeholder="pseudo"></br>
-          <input id="inspw" class="inputext" type="password" placeholder="Mot de passe"></br>
-          <input id="inscription" type="submit" value="S'inscrire sur Paon">
+        <form class="connectForm">
+          <input id="accConnect" class="inputext" type="text" placeholder="Téléphone, email ou identifiant">
+          </br>
+          <input id="password" type="password" placeholder="Mot de passe">
+          <input id="buttonConnect" type="submit" value="Paon">
+          </br>
         </form>
-      </div>
-    </div>
+    </nav>
+  </header>
+  <div class="container">
+      <h1>Bienvenue sur Paon, le réseau social décalé</h1>
 
-  </ul>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="script.js"></script>
+      <form class="insForm">
+        <p>
+          <strong>Nouveau sur Paon?</strong> Inscrivez-vous</p>
+        <input id="insname" class="inputext" type="text" placeholder="Nom">
+        </br>
+        <input id="insfname" class="inputext" type="text" placeholder="Prénom">
+        </br>
+        <input id="insmail" class="inputext" type="text" placeholder="Adresse email">
+        </br>
+        <input id="inspseudo" class="inputext" type="text" placeholder="pseudo">
+        </br>
+        <input id="inspw" class="inputext" type="password" placeholder="Mot de passe">
+        </br>
+        <input id="inscription" type="submit" value="Paon">
+      </form>
+  </div>
 
-  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
 </html>
